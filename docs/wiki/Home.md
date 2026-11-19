@@ -3,6 +3,10 @@
 - **Maestría:** Inteligencia Artificial Aplicada UCSM - UTPL
 - **Curso:** Herramientas para Inteligencia Artificial
 - **Repositorio:** https://github.com/vchirinosb/f1-championship
+- **Autores:**
+1. Víctor Hugo Chirinos Barrios
+2. Marcelo Jaime Quispe Ccachuco
+
 
 Este informe describe un proyecto de análisis de datos sobre los resultados del Campeonato Mundial de Fórmula 1 de
 1950 a 2024. El proyecto combina dos fuentes de datos (una base de datos SQLite y archivos CSV), las lee e integra con
