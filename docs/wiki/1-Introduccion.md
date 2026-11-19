@@ -1,34 +1,27 @@
 # 1. Introducción
+La Fórmula 1 es la máxima categoría del automovilismo mundial y constituye una importante fuente de información histórica relacionada con pilotos, escuderías, circuitos, carreras y resultados deportivos. Desde el inicio del campeonato en 1950, se han generado registros detallados que permiten analizar el desempeño de los diferentes participantes y estudiar la evolución de la competición a lo largo del tiempo.
 
-La Fórmula 1 registra desde 1950 el resultado de cada piloto en cada carrera: dónde salió, dónde llegó, cuántos puntos
-sumó y por qué abandonó. Con 75 temporadas, 1125 Grandes Premios y 861 pilotos, es un buen caso para aplicar las
-herramientas del curso a un problema completo: desde los archivos originales hasta una aplicación que cualquiera
-puede usar.
+La gran cantidad de datos disponibles convierte a la Fórmula 1 en un caso de estudio adecuado para la aplicación de técnicas de ciencia de datos e inteligencia artificial. El análisis de esta información permite identificar patrones, tendencias y relaciones entre variables que influyen en los resultados de las competencias, facilitando la generación de conocimiento a partir de datos históricos.
+El presente proyecto tiene los siguientes objetivos:
 
-## Objetivos
+## 1.1. Objetivo General
+- Desarrollar un sistema de análisis y predicción basado en datos históricos de la Fórmula 1.
+## 1.2. Objetivos específicos
+- Integrar y preparar datos históricos de la Fórmula 1 a partir de archivos CSV y una base de datos relacional en SQLite.
+- Visualizar y analizar la evolución histórica del campeonato mediante técnicas de análisis y representación de datos.
+- Aplicar modelos de aprendizaje automático para la identificación de patrones y la generación de predicciones.
+- Desarrollar una solución inteligente para la consulta, análisis y presentación de información relacionada con la Fórmula 1.
 
-- Trabajar con **dos fuentes de datos**: una base de datos relacional (SQLite) con las tablas de catálogo y resultados,
-  y archivos CSV con el detalle vuelta a vuelta y las paradas en boxes.
-- **Leer, analizar, limpiar e integrar** ambas fuentes con Pandas, explicando el significado de las columnas, los nulos
-  y los valores atípicos.
-- **Visualizar** la historia del campeonato con Matplotlib y Bokeh.
-- Construir un **dataset final** que sirva de entrada a los modelos.
-- Entrenar dos modelos de machine learning y registrarlos en **MLflow**:
-  - un **clustering** que agrupa a los pilotos según su perfil de desempeño;
-  - un **clasificador** que estima la probabilidad de que un piloto termine en el podio con la información disponible
-    antes de la carrera.
-- Construir un **asistente** que responda preguntas en español, como *¿Quién ganó en Monza en 2019?*, con un modelo de
-  lenguaje local (Ollama) que consulta la base de datos en lugar de responder de memoria.
-- Servir los datos, los modelos y el asistente con una **API en Flask** y una **aplicación en Streamlit**.
-
-## Alcance
+## 1.3. Alcance
 
 El proyecto usa la versión 24 del dataset de Kaggle, que cubre las temporadas 1950 a 2024. Los 14 CSV originales se
 incluyen en el repositorio (`data/raw/`) para que cualquiera obtenga exactamente los mismos resultados. Todo se ejecuta
 en una computadora personal: la base de datos es un archivo SQLite, MLflow y Ollama corren como servicios locales y el
 LLM es un modelo pequeño (`llama3.2:3b`, 2 GB) que no necesita una GPU dedicada.
 
-## Organización del trabajo
+Asimismo, el proyecto contempla la aplicación de técnicas de aprendizaje automático para el análisis de patrones y la generación de predicciones, así como la implementación de un asistente conversacional basado en un modelo de lenguaje local para la consulta de información mediante lenguaje natural. Toda la solución se ejecuta en un entorno local y reproducible, permitiendo su funcionamiento en una computadora personal sin requerir infraestructura especializada.
+
+## 1.4. Organización del trabajo
 
 El trabajo se divide en cinco notebooks de Jupyter Lab, que se ejecutan en orden:
 
