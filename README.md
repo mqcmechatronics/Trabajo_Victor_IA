@@ -1,26 +1,21 @@
 # Campeonato Mundial de Fórmula 1: análisis, modelos y asistente
 
-Análisis del dataset *Formula 1 World Championship (1950 - 2024)* de Kaggle con dos fuentes de datos (una base de datos
-SQLite y archivos CSV), visualizaciones con Matplotlib y Bokeh, un clustering de pilotos, un clasificador de podio
-registrados en MLflow, un asistente que responde preguntas en español con un LLM local (Ollama), una API en Flask y
-una aplicación en Streamlit.
+## Descripción
 
-El informe completo está en la [Wiki del repositorio](https://github.com/vchirinosb/f1-championship/wiki).
+El presente proyecto desarrolla una solución de análisis y predicción basada en datos históricos del Campeonato Mundial de Fórmula 1. Se integran técnicas de ciencia de datos, aprendizaje automático y modelos de lenguaje para el procesamiento, análisis y consulta de información histórica del campeonato.
+
+La solución incorpora una base de datos SQLite, herramientas de visualización, modelos de machine learning registrados en MLflow, un asistente conversacional basado en Ollama, una API desarrollada en Flask y una interfaz de usuario implementada en Streamlit.
+
+La documentación completa del proyecto se encuentra disponible en la [Wiki del repositorio](https://github.com/vchirinosb/f1-championship/wiki).
 
 ## Curso
 Herramientas para Inteligencia Artificial - Maestría en Inteligencia Artificial Aplicada UCSM - UTPL
 
 ## Dataset
 
-[Formula 1 World Championship (1950 -
+Se utiliza el conjunto de datos Formula 1 World Championship (1950-2024), disponible en Kaggle. [Formula 1 World Championship (1950 -
 2024)](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) de Kaggle, **versión 24**.
-Los 14 archivos CSV originales están incluidos en `data/raw/` y el proyecto trabaja directamente con ellos, sin volver
-a descargarlos:
-
-- **Base de datos** (`data/f1.db`, SQLite): las 12 tablas relacionales (carreras, circuitos, pilotos, escuderías,
-  resultados, clasificación, campeonatos, ...), creadas con `sql/schema.sql` y `sql/views.sql`.
-- **CSV**: `lap_times.csv` y `pit_stops.csv`, que se leen directamente con Pandas.
-- **Dataset final**: `data/final/f1_dataset_final.csv`, una fila por piloto y carrera (25 146 filas, 39 columnas).
+El proyecto integra información histórica de pilotos, carreras, circuitos, escuderías y resultados deportivos, consolidando los datos en una base de datos SQLite para su posterior análisis.
 
 ## Estructura del repositorio
 
@@ -45,64 +40,13 @@ docs/wiki/           páginas del informe que se publican en la Wiki
 Cada notebook empieza con un encabezado (maestría, curso, repositorio, plataformas y librerías) y termina con
 conclusiones. Deben ejecutarse en orden: cada uno usa lo que genera el anterior.
 
-### `01_construccion_bd.ipynb`
-1. Preparación del entorno.
-2. Dataset inicial.
-3. Archivos del dataset.
-4. Qué tablas van a la base de datos y cuáles quedan como CSV.
-5. Construcción de la base de datos.
-6. Validación.
-7. Consultas de ejemplo.
-8. Conclusiones.
+## Notebooks desarrollados
 
-### `02_analisis_visualizaciones.ipynb` (notebook principal)
-1. Preparación del entorno.
-2. Lectura de datos con Pandas (base de datos y CSV).
-3. Análisis de las columnas (resultados, clasificación, campeonato de pilotos, tiempos por vuelta y paradas en boxes).
-4. Preparación de los datos (filtrar datos confiables, nuevas columnas agregadas, eliminar outliers, histogramas,
-   integración CSV + base de datos y variables pre-carrera).
-5. Visualizaciones (victorias por escudería y década, mapa de circuitos, campeonato 2021, ritmo en Abu Dhabi 2021,
-   duración de las paradas y posición de salida vs. resultado).
-6. Dataset final.
-7. Conclusiones.
-
-### `03_clustering.ipynb`
-1. Preparación del entorno.
-2. Lectura del dataset final.
-3. Preparación de los datos (perfil de cada piloto, histogramas, eliminar outliers, escala logarítmica y estandarizar).
-4. Número de clusters.
-5. Comparación K-Means / jerárquico / GMM.
-6. K-Means con 4 grupos.
-7. Gráficos de los grupos.
-8. Estadísticas de cada grupo.
-9. Clasificar un piloto nuevo.
-10. Registro en MLflow.
-11. Conclusiones.
-
-### `04_clasificacion.ipynb`
-1. Preparación del entorno.
-2. Lectura del dataset final.
-3. Variable objetivo (podio) y balance de clases.
-4. Variables pre-carrera.
-5. Partición temporal.
-6. Línea base.
-7. Modelos.
-8. Umbral.
-9. Métricas y matriz de confusión.
-10. Importancia de variables.
-11. Predecir un caso nuevo.
-12. Registro en MLflow.
-13. Conclusiones.
-
-### `05_llm.ipynb`
-1. Preparación del entorno.
-2. Ollama y llama3.2:3b.
-3. Herramientas SQL (resolución de nombres y llamadas directas).
-4. Texto-a-SQL.
-5. Ejemplos de preguntas.
-6. Evaluación con el conjunto de preguntas.
-7. Registro en MLflow.
-8. Conclusiones.
+01. Construcción de la base de datos. `01_construccion_bd.ipynb`
+02. Análisis exploratorio y visualizaciones. `02_analisis_visualizaciones.ipynb` (notebook principal)
+03. Clustering de pilotos. `03_clustering.ipynb`
+04. Clasificación de podios. `04_clasificacion.ipynb`
+05. Asistente basado en LLM. `05_llm.ipynb`
 
 ## Ejecución
 
